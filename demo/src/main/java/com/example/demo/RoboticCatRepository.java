@@ -2,6 +2,6 @@ package com.example.demo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-interface RoboticCatRepository extends RoboticPetRepository<RoboticCat, Long> {
+interface RoboticCatRepository extends JpaRepository<RoboticCat, Long> {
 
 }

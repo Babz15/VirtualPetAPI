@@ -15,7 +15,7 @@ class OrganicDog extends OrganicPet{
 
     OrganicDog() {}
 
-    OrganicDog(String name, String Description) {
+    OrganicDog(String name, String description) {
         super(name, description);
         this.thirst = 39;
         this.hunger = 30;
@@ -42,8 +42,8 @@ class OrganicDog extends OrganicPet{
         return true;
     if (!(o instanceof OrganicDog))
         return false;
-    OrganicDog OrganicDog = (OrganicDog) o;
-        return Objects.equals(this.id, organicPet.id) && Objects.equals(this.cageCleanliness, organicDog.cageCleanliness); 
+    OrganicDog organicDog = (OrganicDog) o;
+        return Objects.equals(this.id, organicDog.id) && Objects.equals(this.cageCleanliness, organicDog.cageCleanliness); 
     }
 
     @Override

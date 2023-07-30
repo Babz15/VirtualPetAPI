@@ -28,25 +28,25 @@ class RoboticPetController {
     }
   // end::get-aggregate-root[]
 
-    @PostMapping("/robotic pets")
+    @PostMapping("/roboticpets")
     RoboticPet newRoboticPet(@RequestBody RoboticPet newRoboticPet) {
         return repository.save(newRoboticPet);
     }
 
   // Single item
 
-    @GetMapping("/virtual pets/{id}")
+    @GetMapping("/roboticpets/{id}")
     RoboticPet one(@PathVariable Long id) {
     
-    return repository.findById(id)
-        .orElseThrow(() -> new RoboticPetNotFoundException(id));
-    }
+        return repository.findById(id)
+        .orElseThrow(() -> new RuntimeException());
+}
 
-    @PutMapping("/virtual pets/{id}")
+    @PutMapping("/roboticpets/{id}")
     RoboticPet replaceRoboticPet(@RequestBody RoboticPet newRoboticPet, @PathVariable Long id) {
     
     return repository.findById(id)
-        .map(virtualPet -> {
+        .map(roboticPet -> {
         roboticPet.setName(newRoboticPet.getName());
         roboticPet.setDescription(newRoboticPet.getDescription());
         return repository.save(roboticPet);
@@ -57,7 +57,7 @@ class RoboticPetController {
         });
     }
 
-    @DeleteMapping("/robotic pet/{id}")
+    @DeleteMapping("/roboticpet/{id}")
     void deleteRoboticPet(@PathVariable Long id) {
     repository.deleteById(id);
     }

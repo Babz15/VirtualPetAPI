@@ -2,6 +2,6 @@ package com.example.demo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-interface OrganicDogRepository extends OrganicPetRepository<OrganicDog, Long> {
+interface OrganicDogRepository extends JpaRepository<OrganicDog, Long> {
 
 }

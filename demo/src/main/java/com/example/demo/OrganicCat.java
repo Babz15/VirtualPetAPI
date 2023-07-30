@@ -15,7 +15,7 @@ class OrganicCat extends OrganicPet{
 
     OrganicCat() {}
 
-    OrganicCat(String name, String Description) {
+    OrganicCat(String name, String description) {
         super(name, description);
         this.thirst = 44;
         this.hunger = 38;
@@ -28,7 +28,7 @@ class OrganicCat extends OrganicPet{
     }
 
     public int getLitterBoxCleanliness() {
-        return this.cageCleanliness; 
+        return this.litterBoxCleanliness; 
     }
 
     public void setId(Long id) {
@@ -42,7 +42,7 @@ class OrganicCat extends OrganicPet{
         return true;
     if (!(o instanceof OrganicCat))
         return false;
-    OrganicCat OrganicCat = (OrganicCat) o;
+    OrganicCat organicCat = (OrganicCat) o;
         return Objects.equals(this.id, organicCat.id) && Objects.equals(this.litterBoxCleanliness, organicCat.litterBoxCleanliness); 
     }
 

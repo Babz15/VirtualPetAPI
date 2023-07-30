@@ -35,14 +35,14 @@ class RoboticDogController {
 
   // Single item
 
-    @GetMapping("/virtual dogs/{id}")
+    @GetMapping("/roboticdogs/{id}")
     RoboticDog one(@PathVariable Long id) {
     
-    return repository.findById(id)
-        .orElseThrow(() -> new RoboticDogNotFoundException(id));
+        return repository.findById(id)
+            .orElseThrow(() -> new RuntimeException());
     }
 
-    @PutMapping("/virtual dogs/{id}")
+    @PutMapping("/roboticdogs/{id}")
     RoboticDog replaceRoboticDog(@RequestBody RoboticDog newRoboticDog, @PathVariable Long id) {
     
     return repository.findById(id)

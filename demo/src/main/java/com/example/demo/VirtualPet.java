@@ -7,23 +7,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@MappedSuperClass
-class VirtualPet {
+// @MappedSuperclass
+public class VirtualPet {
 
     private @Id @GeneratedValue Long id;
-    private String name;
-    private String description;
-    private int boredom;
-    private int happiness;
+    protected String name;
+    protected String description;
+    protected int boredom;
+    protected int happiness;
 
     VirtualPet() {}
 
-    VirtualPet(String name, String description, int boredom, int happiness) {
+    VirtualPet(String name, String description) {
 
         this.name = name;
         this.description = description;
-        this.boredom = boredom;
-        this.happiness = happiness;
     }
 
     public Long getId() {

@@ -22,27 +22,27 @@ class OrganicCatController {
 
   // Aggregate root
   // tag::get-aggregate-root[]
-    @GetMapping("/organic cats")
+    @GetMapping("/organiccats")
     List<OrganicCat> all() {
     return repository.findAll();
     }
   // end::get-aggregate-root[]
 
-    @PostMapping("/organic cats")
+    @PostMapping("/organiccats")
     OrganicCat newOrganicCat(@RequestBody OrganicCat newOrganicCat) {
         return repository.save(newOrganicCat);
     }
 
   // Single item
 
-    @GetMapping("/organic cats/{id}")
+    @GetMapping("/organiccats/{id}")
     OrganicCat one(@PathVariable Long id) {
     
-    return repository.findById(id)
-        .orElseThrow(() -> new OrganicCatNotFoundException(id));
+        return repository.findById(id)
+            .orElseThrow(() -> new RuntimeException());
     }
 
-    @PutMapping("/organic cats/{id}")
+    @PutMapping("/organiccats/{id}")
     OrganicCat replaceOrganicCat(@RequestBody OrganicCat newOrganicCat, @PathVariable Long id) {
     
     return repository.findById(id)

@@ -1,7 +1,8 @@
 package com.example.demo;
 
 import java.util.List;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,9 @@ class RoboticCatController {
 
     private final RoboticCatRepository repository;
 
+    private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
+
+
     RoboticCatController(RoboticCatRepository repository) {
         this.repository = repository;
     }
@@ -22,27 +26,27 @@ class RoboticCatController {
 
   // Aggregate root
   // tag::get-aggregate-root[]
-    @GetMapping("/robotic cats")
+    @GetMapping("/roboticcats")
     List<RoboticCat> all() {
     return repository.findAll();
     }
   // end::get-aggregate-root[]
 
-    @PostMapping("/robotic cats")
+    @PostMapping("/roboticcats")
     RoboticCat newRoboticCat(@RequestBody RoboticCat newRoboticCat) {
         return repository.save(newRoboticCat);
     }
 
   // Single item
 
-    @GetMapping("/virtual cats/{id}")
+    @GetMapping("/roboticcats/{id}")
     RoboticCat one(@PathVariable Long id) {
     
-    return repository.findById(id)
-        .orElseThrow(() -> new RoboticCatNotFoundException(id));
-    }
+        return repository.findById(id)
+        .orElseThrow(() -> new RuntimeException());
+}
 
-    @PutMapping("/virtual cats/{id}")
+    @PutMapping("/roboticcats/{id}")
     RoboticCat replaceRoboticCat(@RequestBody RoboticCat newRoboticCat, @PathVariable Long id) {
     
     return repository.findById(id)
@@ -57,7 +61,7 @@ class RoboticCatController {
         });
     }
 
-    @DeleteMapping("/robotic cat/{id}")
+    @DeleteMapping("/roboticcat/{id}")
     void deleteRoboticCat(@PathVariable Long id) {
     repository.deleteById(id);
     }

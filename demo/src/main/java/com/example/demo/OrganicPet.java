@@ -11,8 +11,8 @@ import jakarta.persistence.Id;
 class OrganicPet extends VirtualPet{
 
     private @Id @GeneratedValue Long id;
-    private int hunger;
-    private int thirst;
+    protected int hunger;
+    protected int thirst;
 
     OrganicPet() {}
 
@@ -53,9 +53,9 @@ class OrganicPet extends VirtualPet{
         return true;
     if (!(o instanceof OrganicPet))
         return false;
-    OrganicPet OrganicPet = (OrganicPet) o;
+    OrganicPet organicPet = (OrganicPet) o;
         return Objects.equals(this.id, organicPet.id) && Objects.equals(this.hunger, organicPet.hunger) && 
-        Objects.equals(this.thirst, OrganicPet.thirst);
+        Objects.equals(this.thirst, organicPet.thirst);
     }
 
     @Override

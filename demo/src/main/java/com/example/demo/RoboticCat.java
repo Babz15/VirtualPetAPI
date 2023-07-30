@@ -14,7 +14,7 @@ class RoboticCat extends RoboticPet{
 
     RoboticCat() {}
 
-    RoboticCat(String name, String Description) {
+    RoboticCat(String name, String description) {
         super(name, description);
     }
 

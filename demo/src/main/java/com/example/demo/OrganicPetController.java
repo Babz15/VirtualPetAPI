@@ -28,21 +28,21 @@ class OrganicPetController {
     }
   // end::get-aggregate-root[]
 
-    @PostMapping("/organic pets")
+    @PostMapping("/organicpets")
     OrganicPet newOrganicPet(@RequestBody OrganicPet newOrganicPet) {
         return repository.save(newOrganicPet);
     }
 
   // Single item
 
-    @GetMapping("/organic pets/{id}")
-    OrganicDog one(@PathVariable Long id) {
+    @GetMapping("/organicpets/{id}")
+    OrganicPet one(@PathVariable Long id) {
     
-    return repository.findById(id)
-        .orElseThrow(() -> new OrganicPetNotFoundException(id));
+        return repository.findById(id)
+            .orElseThrow(() -> new RuntimeException());
     }
 
-    @PutMapping("/organic pets/{id}")
+    @PutMapping("/organicpets/{id}")
     OrganicPet replaceOrganicPet(@RequestBody OrganicPet newOrganicPet, @PathVariable Long id) {
     
     return repository.findById(id)

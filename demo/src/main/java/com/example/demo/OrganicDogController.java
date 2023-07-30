@@ -38,8 +38,8 @@ class OrganicDogController {
     @GetMapping("/organic dogs/{id}")
     OrganicDog one(@PathVariable Long id) {
     
-    return repository.findById(id)
-        .orElseThrow(() -> new OrganicDogNotFoundException(id));
+        return repository.findById(id)
+            .orElseThrow(() -> new RuntimeException());
     }
 
     @PutMapping("/organic pets/{id}")

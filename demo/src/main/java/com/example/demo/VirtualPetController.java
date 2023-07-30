@@ -35,11 +35,11 @@ class VirtualPetController {
 
   // Single item
 
-    @GetMapping("/virtual pets/{id}")
+    @GetMapping("/virtualpets/{id}")
     VirtualPet one(@PathVariable Long id) {
     
-    return repository.findById(id)
-        .orElseThrow(() -> new VirtualPetNotFoundException(id));
+        return repository.findById(id)
+            .orElseThrow(() -> new RuntimeException());
     }
 
     @PutMapping("/virtual pets/{id}")

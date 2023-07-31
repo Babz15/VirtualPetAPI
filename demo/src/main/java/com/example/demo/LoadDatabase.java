@@ -11,12 +11,13 @@ class LoadDatabase {
 
   private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
-  // @Bean
-  // CommandLineRunner initDatabase(EmployeeRepository repository) {
+  @Bean
+  CommandLineRunner initDatabase(VirtualPetRepository repository) {
 
-  //   return args -> {
-  //     log.info("Preloading " + repository.save(new Employee("Bilbo Baggins", "burglar")));
-  //     log.info("Preloading " + repository.save(new Employee("Frodo Baggins", "thief")));
-  //   };
-  // }
+    return args -> {
+      log.info("Preloading " + repository.save(new RoboticDog("Kilo", "Separation Anxiety.")));
+      log.info("Preloading " + repository.save(new OrganicCat("Sky", "High testosterone levels.")));
+      log.info("Preloading " + repository.save(new OrganicDog("Miles", "TOO much energy.")));
+    };
+  }
 }

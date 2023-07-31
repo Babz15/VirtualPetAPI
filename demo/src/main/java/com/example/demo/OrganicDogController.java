@@ -22,27 +22,27 @@ class OrganicDogController {
 
   // Aggregate root
   // tag::get-aggregate-root[]
-    @GetMapping("/organic dogs")
+    @GetMapping("/organicdogs")
     List<OrganicDog> all() {
     return repository.findAll();
     }
   // end::get-aggregate-root[]
 
-    @PostMapping("/organic dogs")
+    @PostMapping("/organicdogs")
     OrganicDog newOrganicDog(@RequestBody OrganicDog newOrganicDog) {
         return repository.save(newOrganicDog);
     }
 
   // Single item
 
-    @GetMapping("/organic dogs/{id}")
+    @GetMapping("/organicdogs/{id}")
     OrganicDog one(@PathVariable Long id) {
     
         return repository.findById(id)
             .orElseThrow(() -> new RuntimeException());
     }
 
-    @PutMapping("/organic pets/{id}")
+    @PutMapping("/organicdogs/{id}")
     OrganicDog replaceOrganicDog(@RequestBody OrganicDog newOrganicDog, @PathVariable Long id) {
     
     return repository.findById(id)
@@ -57,7 +57,7 @@ class OrganicDogController {
         });
     }
 
-    @DeleteMapping("/organic dog/{id}")
+    @DeleteMapping("/organicdog/{id}")
     void deleteOrganicDog(@PathVariable Long id) {
     repository.deleteById(id);
     }

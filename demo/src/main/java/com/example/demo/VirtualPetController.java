@@ -42,7 +42,7 @@ class VirtualPetController {
             .orElseThrow(() -> new RuntimeException());
     }
 
-    @PutMapping("/virtual pets/{id}")
+    @PutMapping("/virtualpets/{id}")
     VirtualPet replaceVirtualPet(@RequestBody VirtualPet newVirtualPet, @PathVariable Long id) {
     
     return repository.findById(id)
@@ -57,7 +57,7 @@ class VirtualPetController {
         });
     }
 
-    @DeleteMapping("/virtual pet/{id}")
+    @DeleteMapping("/virtualpet/{id}")
     void deleteVirtualPet(@PathVariable Long id) {
     repository.deleteById(id);
     }

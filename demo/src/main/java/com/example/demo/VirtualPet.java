@@ -6,9 +6,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 
-// @MappedSuperclass
-public class VirtualPet {
+@MappedSuperclass
+public abstract class VirtualPet {
 
     private @Id @GeneratedValue Long id;
     protected String name;

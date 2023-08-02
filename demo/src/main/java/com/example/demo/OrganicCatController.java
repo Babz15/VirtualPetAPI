@@ -57,7 +57,7 @@ class OrganicCatController {
         });
     }
 
-    @DeleteMapping("/organic cat/{id}")
+    @DeleteMapping("/organiccat/{id}")
     void deleteOrganicCat(@PathVariable Long id) {
     repository.deleteById(id);
     }

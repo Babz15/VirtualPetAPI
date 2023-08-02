@@ -13,7 +13,7 @@ class LoadDatabase {
 
   @Bean
   CommandLineRunner initDatabase(VirtualPetRepository repository) {
-
+  
     return args -> {
       log.info("Preloading " + repository.save(new RoboticDog("Kilo", "Separation Anxiety.")));
       log.info("Preloading " + repository.save(new OrganicCat("Sky", "High testosterone levels.")));
